@@ -41,6 +41,10 @@ body {
 .navbar {
     background-color: #204693;
     height: 75px;
+    color: #e8eef6;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 15px;
 }
 
     .nav-link {
@@ -49,6 +53,21 @@ body {
         font-weight: 300;
         padding: 15px;
     }
+
+/*.nav-link {
+    color: #e8eef6;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 15px;
+    line-height: 70px;
+    position: relative;
+    height: auto;
+}*/
+
+.selectBox {
+    border-radius: 4px;
+    border: 1px solid #AAAAAA;
+}
 
 footer {
     width: 100%;
@@ -62,3 +81,11 @@ footer {
         margin-left: 20px;
         font-size: 0.9rem;
     }
+
+h1 {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    /*color: #414244;*/
+    color: rebeccapurple;
+}

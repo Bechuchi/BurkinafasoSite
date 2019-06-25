@@ -1,16 +1,16 @@
 ﻿
 <nav class="navbar navbar-fixed-top fixed-top navbar-expand-lg">
-    <div class="container">
-        <div class="row col-12">
-            <div class="nav navbar-nav">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
-                <a asp-area="" asp-controller="Home" asp-action="About" class="nav-item nav-link">About</a>
-            </div>
-            <div class="col-sm-10 text-sm-right">
-                <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-item nav-link">Contact</a>
-                @await Html.PartialAsync("_SelectLanguage")
-            </div>
+    @*<div class="container">*@
+    <div class="row col-12">
+        <div class="nav navbar-nav">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
+            <a asp-area="" asp-controller="Home" asp-action="About" class="nav-item nav-link">About</a>
+            <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-item nav-link">Contact</a>
         </div>
+        <div class="col-sm-10 text-sm-right">
+            @await Html.PartialAsync("_SelectLanguage")
+        </div>
+        
     </div>
 </nav>
 
