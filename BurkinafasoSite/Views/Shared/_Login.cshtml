@@ -1,7 +1,9 @@
-﻿@*@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
+@using BurkinafasoSite.Data
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {
@@ -11,15 +13,15 @@
                 <a>Hello Olivia @UserManager.GetUserName(User)!</a>
             </li>
             <li>
-                <button type="submit" class="btn btn-link nav-link">Logout</button> 
+                <button type="submit" class="btn btn-link nav-link">Logout</button>
             </li>
         </ul>
     </form>
 }
 else
-{*@
+{
     <ul class="nav navbar-nav navbar-right">
         <li><a asp-controller="Account" asp-action="Register">Register</a></li>
         <li><a asp-controller="Account" asp-action="Login">Login</a></li>
     </ul>
-@*}*@
+}
