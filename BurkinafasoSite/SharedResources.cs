@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BurkinafasoSite
 {
-    public class SharedResource
+    public class SharedResources
     {
 
     }

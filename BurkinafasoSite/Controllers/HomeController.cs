@@ -8,16 +8,20 @@ using BurkinafasoSite.Models;
 using Microsoft.Extensions.Localization;
 using BurkinafasoSite.Resources;
 using System.Globalization;
+using BurkinafasoSite.Data;
 
 namespace BurkinafasoSite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IStringLocalizer<SharedResource> _localizer;
+        private readonly IStringLocalizer<SharedResources> _localizer;
+        private ApplicationDbContext _context;
 
-        public HomeController(IStringLocalizer<SharedResource> localizer)
+        public HomeController(IStringLocalizer<SharedResources> localizer,
+                              ApplicationDbContext context)
         {
             _localizer = localizer;
+            _context = context;
         }
 
         //public string GetLocalizedString()
@@ -37,8 +41,9 @@ namespace BurkinafasoSite.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+            var test = _context.Course.FirstOrDefault();
 
-            return View();
+            return View(test);
         }
 
         public IActionResult Contact()

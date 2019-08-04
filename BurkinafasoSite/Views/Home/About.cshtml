@@ -1,8 +1,12 @@
-﻿@{
+﻿@model BurkinafasoSite.Models.Course
+
+@{
     ViewData["Title"] = "About";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+
+<h1>@Model.Name</h1>
 
 <div id="accordion">
     <div class="card">

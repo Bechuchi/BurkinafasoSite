@@ -1,5 +1,9 @@
 ﻿@using BurkinafasoSite
 @using BurkinafasoSite.Models
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @* Localization "Less than 5min" *@
+
+@* - Injecting the SharedViewLocalizer.cs in the _ViewImports (instance name for views = Localizer)
+   - This way only one file need to be modified to update all the views in the project *@
 @inject BurkinafasoSite.Resources.SharedViewLocalizer Localizer

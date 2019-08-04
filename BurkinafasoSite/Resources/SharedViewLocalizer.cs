@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace BurkinafasoSite.Resources
 {
+    //Creating my own implementation of a Localizer
+    //A localizer that uses the IStringLocalizer behind the scenes (Can be improved)
+    //In view: Injecting this Localizer instead of the default IViewLocalizer
     public class SharedViewLocalizer
     {
         private readonly IStringLocalizer _localizer;
 
         public SharedViewLocalizer(IStringLocalizerFactory factory)
         {
-            var type = typeof(SharedResource);
+            var type = typeof(SharedResources);
             var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
             _localizer = factory.Create("SharedResource", assemblyName.Name);
         }

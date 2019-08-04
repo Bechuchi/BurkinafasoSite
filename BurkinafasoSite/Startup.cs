@@ -17,6 +17,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using BurkinafasoSite.Resources;
+using BurkinafasoSite.Models;
 
 namespace BurkinafasoSite
 {
@@ -41,20 +42,22 @@ namespace BurkinafasoSite
 
             //Localization
             //Andrew
-            //services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+            //services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });           
+
 
             services.AddMvc()
-                 //Localization
+                //Localization
 
-                 //Andrew
-                 //.AddViewLocalization(
-                 //   LanguageViewLocationExpanderFormat.Suffix,
-                 //   opts => { opts.ResourcesPath = "Resources"; })
+                //Andrew
+                //.AddViewLocalization(
+                //   LanguageViewLocationExpanderFormat.Suffix,
+                //   opts => { opts.ResourcesPath = "Resources"; })
 
                 //"Less than 5min"
-                .AddDataAnnotationsLocalization(options => 
+                .AddDataAnnotationsLocalization(options =>
                     options.DataAnnotationLocalizerProvider = (type, factory) =>
-                        factory.Create(typeof(SharedResource)))
+                        factory.Create(typeof(SharedResources)))
+
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddScoped<SharedViewLocalizer>();
@@ -64,26 +67,27 @@ namespace BurkinafasoSite
             //.AddDataAnnotationsLocalization();
 
             //Localization: Andrew
-            //För att välja språk
-            services.Configure<RequestLocalizationOptions>(
-                opts =>
-                {
-                    var supportedCultures = new List<CultureInfo>
-                    {
-                        new CultureInfo("en-GB"),
-                        new CultureInfo("en-US"),
-                        new CultureInfo("en"),
-                        new CultureInfo("fr-FR"),
-                        new CultureInfo("fr"),
-                        new CultureInfo("sv")
-                    };
 
-                    opts.DefaultRequestCulture = new RequestCulture("en-GB");
-                    // Formatting numbers, dates, etc.
-                    opts.SupportedCultures = supportedCultures;
-                    // UI strings that we have localized.
-                    opts.SupportedUICultures = supportedCultures;
-                });
+            //För att välja språk
+            //services.Configure<RequestLocalizationOptions>(
+            //    opts =>
+            //    {
+            //        var supportedCultures = new List<CultureInfo>
+            //        {
+            //            new CultureInfo("en-GB"),
+            //            new CultureInfo("en-US"),
+            //            new CultureInfo("en"),
+            //            new CultureInfo("fr-FR"),
+            //            new CultureInfo("fr"),
+            //            new CultureInfo("sv")
+            //        };
+
+            //        opts.DefaultRequestCulture = new RequestCulture("en-GB");
+            //        // Formatting numbers, dates, etc.
+            //        opts.SupportedCultures = supportedCultures;
+            //        // UI strings that we have localized.
+            //        opts.SupportedUICultures = supportedCultures;
+            //    });
 
             //Identity
             services.AddDbContext<ApplicationDbContext>(
