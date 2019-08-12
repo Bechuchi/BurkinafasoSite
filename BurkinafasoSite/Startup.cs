@@ -40,35 +40,66 @@ namespace BurkinafasoSite
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //Localization
-            //Andrew
+            //*******************
+            //Localization: Andrew
             //services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });           
 
-
             services.AddMvc()
-                //Localization
-
-                //Andrew
+                //*******************
+                //Localization: Andrew
                 //.AddViewLocalization(
                 //   LanguageViewLocationExpanderFormat.Suffix,
                 //   opts => { opts.ResourcesPath = "Resources"; })
 
-                //"Less than 5min"
+
+                //*******************
+                //Localization: "Less than 5min"
                 .AddDataAnnotationsLocalization(options =>
                     options.DataAnnotationLocalizerProvider = (type, factory) =>
                         factory.Create(typeof(SharedResources)))
 
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
 
+                //************************************
+                //Localization FLASHBACK
+                .AddViewLocalization(o => o.ResourcesPath = "Resources");
+
+            //*******************
+            //Localization: "Less than 5min"
             services.AddScoped<SharedViewLocalizer>();
 
+            //*******************
             //Localization: Andrew
             //.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opts => { opts.ResourcesPath = "Resources"; })
             //.AddDataAnnotationsLocalization();
 
-            //Localization: Andrew
+            //***********************
+            //Localization: TEST MATTEO
+            //var supportedCultures = new[]
+            //{
+            //    new CultureInfo("en-US"),
+            //    new CultureInfo("de-CH"),
+            //};
 
-            //För att välja språk
+            //***********************
+            //Localization: TEST MATTEO
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                //options.DefaultRequestCulture = new RequestCulture(culture: "de-CH", uiCulture: "de-CH");
+                //options.SupportedCultures = supportedCultures;
+                //options.SupportedUICultures = supportedCultures;
+                options.SupportedCultures.Add(new CultureInfo("en-US"));
+                options.SupportedCultures.Add(new CultureInfo("fr"));
+
+                options.SupportedUICultures.Add(new CultureInfo("en-US"));
+                options.SupportedUICultures.Add(new CultureInfo("fr"));
+
+                //options.RequestCultureProviders.Clear(); // Clears all the default culture providers from the list
+                //options.RequestCultureProviders.Add(new UserProfileRequestCultureProvider()); // Add your custom culture provider back to the list
+            });
+
+            //*******************
+            //Localization: Andrew (För att välja språk)
             //services.Configure<RequestLocalizationOptions>(
             //    opts =>
             //    {
@@ -89,6 +120,7 @@ namespace BurkinafasoSite
             //        opts.SupportedUICultures = supportedCultures;
             //    });
 
+            //*******************
             //Identity
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -116,8 +148,8 @@ namespace BurkinafasoSite
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            //Localization: Andrew
-            //För att välja språk
+            //*******************
+            //Localization: Andrew (För att välja språk)
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
 

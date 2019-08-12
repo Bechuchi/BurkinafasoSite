@@ -117,7 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Hej" xml:space="preserve">
-    <value>Hejsan</value>
+  <data name="About" xml:space="preserve">
+    <value>Om</value>
+  </data>
+  <data name="Confirm your password" xml:space="preserve">
+    <value>Konfirmera lösenord</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="E-mail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Exercises" xml:space="preserve">
+    <value>Övningar</value>
+  </data>
+  <data name="Facts" xml:space="preserve">
+    <value>Fakta</value>
+  </data>
+  <data name="Forgot password" xml:space="preserve">
+    <value>Glömt lösenord</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hej</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hem</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Språk</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Logga in</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logga ut</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Lösenord</value>
+  </data>
+  <data name="Password confirmation" xml:space="preserve">
+    <value>Konfirmation av lösenord</value>
+  </data>
+  <data name="Recomendations" xml:space="preserve">
+    <value>Rekomendationer</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrera</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="Tests" xml:space="preserve">
+    <value>Prov</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Välkommen</value>
+  </data>
+  <data name="Your e-mail" xml:space="preserve">
+    <value>Din e-mail</value>
+  </data>
+  <data name="Your password" xml:space="preserve">
+    <value>Ditt lösenord</value>
   </data>
 </root>

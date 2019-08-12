@@ -22,13 +22,13 @@
           asp-route-returnUrl="@Context.Request.Path"
           method="post" class="form-horizontal"
           role="form">
-          Language:
+        @Localizer.GetLocalizedString("Language"):
 
         <select class="selectBox" name="culture"
                 asp-for="@requestCulture.RequestCulture.UICulture.Name"
                 asp-items="cultureItems"></select>
 
-        <button type="submit" class="btn btn-sm">Save</button>
+        <button type="submit" class="btn btn-sm">@Localizer.GetLocalizedString("Save")</button>
 
     </form>
 

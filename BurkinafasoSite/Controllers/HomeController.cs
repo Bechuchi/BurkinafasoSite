@@ -9,11 +9,14 @@ using Microsoft.Extensions.Localization;
 using BurkinafasoSite.Resources;
 using System.Globalization;
 using BurkinafasoSite.Data;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
 
 namespace BurkinafasoSite.Controllers
 {
     public class HomeController : Controller
     {
+        public string CurrentLanguage { get; set; }
         private readonly IStringLocalizer<SharedResources> _localizer;
         private ApplicationDbContext _context;
 
@@ -29,10 +32,22 @@ namespace BurkinafasoSite.Controllers
         //    return _localizer["My localized string"];
         //}
 
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            CurrentLanguage = culture;
+
+            return LocalRedirect(returnUrl);
+        }
+
         public IActionResult Index()
         {
-            //var test = new SharedViewLocalizer();
-            //test.GetLocalizedString("Btn.Save");
             _localizer.WithCulture(new CultureInfo("en"));
             var btnSave = _localizer["Btn-save"];
             return View();
